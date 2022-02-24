@@ -115,7 +115,9 @@ class IsoSeeder extends Seeder {
                 ]);
 
                 // Attach relations
+                 if(isset($country['languages']) && count($country['languages']) > 0)
                 $country_model->languages()->attach(Language::find(collect($country['languages'])->pluck('iso639_1')));
+                if(isset($country['currencies']) && count($country['currencies']) > 0)
                 $country_model->currencies()->attach(Currency::find(collect($country['currencies'])->pluck('code')));
                 if(isset($country['borders']) && count($country['borders']) > 0)
                     $country_model->neighbours()->attach(Country::whereIn('alpha_3', $country['borders'])->get());
