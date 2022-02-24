@@ -83,8 +83,8 @@ class IsoSeeder extends Seeder {
         DB::table('country_country')->truncate();
 
         // Load countries and relationships as JSON from RestCountries API
-        $response = Http::get('https://restcountries.eu/rest/v2/all');
-
+        //$response = Http::get('https://restcountries.eu/rest/v2/all');
+        $response = Http::get('https://restcountries.com/v3.1/all');
         if ($response->successful()) {
 
             collect($response->json())->each(function ($country) {
