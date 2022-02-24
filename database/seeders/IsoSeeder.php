@@ -84,6 +84,8 @@ class IsoSeeder extends Seeder {
 
         // Load countries and relationships as JSON from RestCountries API
         //$response = Http::get('https://restcountries.eu/rest/v2/all');
+        
+        //URLS CHANGED
         $response = Http::get('https://restcountries.com/v2/all');
         if ($response->successful()) {
 
